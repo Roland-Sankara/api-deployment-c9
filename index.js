@@ -2,6 +2,7 @@ const express = require('express')
 const quotesRouter = require("./routes/quotesRouter") 
 const authRouter = require("./routes/authRouter")
 const verifyToken = require("./utils/authorization")
+require('dotenv').config()
 
 const server = express()
 
@@ -22,7 +23,7 @@ server.get('/', (req,res)=>{
 // Get all Quotes
 server.use('/quotes', quotesRouter)
 
-const PORT = 4001;
+const PORT = process.env.PORT;
 
 server.listen(PORT, ()=>{
     console.log(`Server is running on http://localhost:${PORT}`);
