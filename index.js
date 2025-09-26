@@ -2,11 +2,13 @@ const express = require('express')
 const quotesRouter = require("./routes/quotesRouter") 
 const authRouter = require("./routes/authRouter")
 const verifyToken = require("./utils/authorization")
+const cors = require('cors')
 require('dotenv').config()
 
 const server = express()
 
 // Middleware
+server.use(cors())
 server.use(express.json())
 
 // Authentication
